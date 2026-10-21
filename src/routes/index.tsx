@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, buildRequest } from "@/lib/services";
+import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Швея на Дивногорском — ремонт и пошив одежды, Новосибирск" },
-      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля на дому. Мкр. Дивногорский и Новомарусино, ул. Юности, 1." },
+      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
       { property: "og:title", content: "Швея на Дивногорском — ремонт и пошив одежды" },
       { property: "og:description", content: "Работаю на дому рядом с вами. Материалы входят в стоимость. Заявка в MAX или по телефону." },
       { property: "og:type", content: "website" },
@@ -86,6 +86,7 @@ function Index() {
       <section id="services" className="mx-auto max-w-6xl px-5 py-10">
         <h2 className="text-3xl font-semibold md:text-4xl">Каталог услуг</h2>
         <p className="mt-2 text-muted-foreground">Отметьте нужное — список уйдёт в заявку.</p>
+        <p className="mt-1 text-sm text-accent">{PRICE_NOTE}</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {CATALOG.map((cat) => (
             <article key={cat.num} className="rounded-3xl border border-border bg-card p-6">
@@ -98,20 +99,25 @@ function Index() {
                   {g.title && <div className="mb-2 text-sm font-bold uppercase tracking-wide text-accent">{g.title}</div>}
                   <div className="flex flex-wrap gap-2">
                     {g.items.map((item) => {
-                      const on = selected.includes(item);
+                      const on = selected.includes(item.name);
                       return (
-                        <button
-                          key={item}
-                          type="button"
-                          onClick={() => toggle(item)}
-                          aria-pressed={on}
-                          className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-left text-sm transition ${
-                            on ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background hover:border-primary"
-                          }`}
-                        >
+                      <button
+                        key={item.name}
+                        type="button"
+                        onClick={() => toggle(item.name)}
+                        aria-pressed={on}
+                        className={`flex min-w-32 flex-col rounded-2xl border px-3 py-1.5 text-left text-sm transition ${
+                          on ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background hover:border-primary"
+                        }`}
+                      >
+                        <span className="flex items-center gap-1.5">
                           {on && <Check className="h-3.5 w-3.5" />}
-                          {item}
-                        </button>
+                          {item.name}
+                        </span>
+                        <span className={`text-xs ${on ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                          {item.price}
+                        </span>
+                      </button>
                       );
                     })}
                   </div>
@@ -131,7 +137,10 @@ function Index() {
               {selected.map((x) => (
                 <li key={x} className="flex justify-between gap-3 border-b border-border py-1.5">
                   {x}
-                  <button onClick={() => toggle(x)} className="text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
+                  <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                    {priceFor(x)}
+                    <button onClick={() => toggle(x)} className="text-base text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -156,6 +165,7 @@ function Index() {
           {copied && (
             <p className="mt-3 text-sm text-accent">Текст заявки скопирован — вставьте его в чат MAX.</p>
           )}
+          <p className="mt-3 text-xs text-muted-foreground">{PRICE_NOTE}</p>
         </div>
       </section>
 
