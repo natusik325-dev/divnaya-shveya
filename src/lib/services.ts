@@ -9,7 +9,7 @@ export const FREE = "бесплатно";
 
 export const PHONE_DISPLAY = "+7 961 220-57-50";
 export const PHONE_TEL = "tel:+79612205750";
-export const MAX_URL = "https://max.ru/u/f9LHodD0cOKaTUaIWtU4O3U9ZLm6kQMLRt6KIqYIZvM-7bYw_bmfRnabOfI";
+export const MAX_URL = "https://max.ru/u/f9LHodD0cOJbl4inGRTKAVHzTya9eky3-ndoBLGEqpzxjtdP79a0k0AN96U";
 export const MAP_URL =
   "https://2gis.ru/novosibirsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%AE%D0%BD%D0%BE%D1%81%D1%82%D0%B8%2C%201";
 
