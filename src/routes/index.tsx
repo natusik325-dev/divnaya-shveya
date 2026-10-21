@@ -7,9 +7,9 @@ import { CATALOG, FREE, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Швея на Дивногорском — ремонт и пошив одежды, Новосибирск" },
-      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Снятие мерок, консультация и подбор фурнитуры — бесплатно. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
-      { property: "og:title", content: "Швея на Дивногорском — ремонт и пошив одежды" },
+      { title: "Швея в Дивногорском — ремонт и подгонка одежды, Новосибирск" },
+      { name: "description", content: "Ремонт и подгонка одежды и домашнего текстиля с ценами от 150 ₽. Снятие мерок, консультация и подбор фурнитуры — бесплатно. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
+      { property: "og:title", content: "Швея в Дивногорском — ремонт и подгонка одежды" },
       { property: "og:description", content: "Работаю на дому рядом с вами. Материалы входят в стоимость. Заявка в MAX или по телефону." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,16 +47,16 @@ function Index() {
       {/* Hero */}
       <header className="mx-auto max-w-6xl px-5 pt-6">
         <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-          <Scissors className="h-4 w-4" /> Швея на Дивногорском
+          <Scissors className="h-4 w-4" /> Швея в Дивногорском
         </div>
       </header>
       <section className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-8 md:grid-cols-2 md:py-14">
         <div>
           <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
-            Ремонт и пошив одежды <span className="text-primary">в соседнем доме</span>
+            Ремонт и подгонка одежды <span className="text-primary">в соседнем доме</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Подгоню, укорочу, заменю молнию, сошью шторы и постельное. Мкр. Дивногорский и Новомарусино.
+            Подгоню и укорочу одежду, подошью шторы и тюль, починю домашний текстиль и фурнитуру. Мкр. Дивногорский и Новомарусино.
           </p>
           <ul className="mt-6 space-y-3">
             {perks.map(({ icon: Icon, text }) => (
@@ -73,7 +73,10 @@ function Index() {
               Выбрать услуги
             </a>
             <a href={PHONE_TEL} className="flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold transition hover:bg-muted">
-              <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
+              <Phone className="h-4 w-4" /> Позвонить
+            </a>
+            <a href={MAX_URL} target="_blank" rel="noopener" className="flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold transition hover:bg-muted">
+              <Send className="h-4 w-4" /> Написать в MAX
             </a>
           </div>
         </div>
