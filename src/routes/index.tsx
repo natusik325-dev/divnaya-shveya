@@ -114,7 +114,7 @@ function Index() {
                           {on && <Check className="h-3.5 w-3.5" />}
                           {item.name}
                         </span>
-                        <span className={`text-xs ${on ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                        <span className={`text-xs ${on ? "text-primary-foreground/80" : item.price === FREE ? "font-semibold text-accent" : "text-muted-foreground"}`}>
                           {item.price}
                         </span>
                       </button>
@@ -137,7 +137,7 @@ function Index() {
               {selected.map((x) => (
                 <li key={x} className="flex justify-between gap-3 border-b border-border py-1.5">
                   {x}
-                  <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                  <span className={`flex shrink-0 items-center gap-2 text-xs ${priceFor(x) === FREE ? "font-semibold text-accent" : "text-muted-foreground"}`}>
                     {priceFor(x)}
                     <button onClick={() => toggle(x)} className="text-base text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
                   </span>
