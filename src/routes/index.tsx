@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
+import { CATALOG, FREE, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Швея на Дивногорском — ремонт и пошив одежды, Новосибирск" },
-      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
+      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Снятие мерок, консультация и подбор фурнитуры — бесплатно. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
       { property: "og:title", content: "Швея на Дивногорском — ремонт и пошив одежды" },
       { property: "og:description", content: "Работаю на дому рядом с вами. Материалы входят в стоимость. Заявка в MAX или по телефону." },
       { property: "og:type", content: "website" },
