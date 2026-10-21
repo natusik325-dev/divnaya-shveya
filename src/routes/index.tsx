@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, buildRequest } from "@/lib/services";
+import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
