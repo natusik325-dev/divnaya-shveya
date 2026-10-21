@@ -98,6 +98,9 @@ function Index() {
                 <div key={i} className="mt-4">
                   {g.title && <div className="mb-2 text-sm font-bold uppercase tracking-wide text-accent">{g.title}</div>}
                   <div className="flex flex-wrap gap-2">
+                    {g.items.map((item) => {
+                      const on = selected.includes(item.name);
+                      return (
                       <button
                         key={item.name}
                         type="button"
@@ -115,6 +118,8 @@ function Index() {
                           {item.price}
                         </span>
                       </button>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
