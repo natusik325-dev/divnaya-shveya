@@ -2,13 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { CATALOG, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
+import { CATALOG, FREE, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Швея на Дивногорском — ремонт и пошив одежды, Новосибирск" },
-      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
+      { name: "description", content: "Ремонт, подгонка и пошив одежды и домашнего текстиля с ценами от 150 ₽. Снятие мерок, консультация и подбор фурнитуры — бесплатно. Мкр. Дивногорский и Новомарусино, ул. Юности, 1. Цены ориентировочные." },
       { property: "og:title", content: "Швея на Дивногорском — ремонт и пошив одежды" },
       { property: "og:description", content: "Работаю на дому рядом с вами. Материалы входят в стоимость. Заявка в MAX или по телефону." },
       { property: "og:type", content: "website" },
@@ -114,7 +114,7 @@ function Index() {
                           {on && <Check className="h-3.5 w-3.5" />}
                           {item.name}
                         </span>
-                        <span className={`text-xs ${on ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+                        <span className={`text-xs ${on ? "text-primary-foreground/80" : item.price === FREE ? "font-semibold text-accent" : "text-muted-foreground"}`}>
                           {item.price}
                         </span>
                       </button>
@@ -137,7 +137,7 @@ function Index() {
               {selected.map((x) => (
                 <li key={x} className="flex justify-between gap-3 border-b border-border py-1.5">
                   {x}
-                  <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                  <span className={`flex shrink-0 items-center gap-2 text-xs ${priceFor(x) === FREE ? "font-semibold text-accent" : "text-muted-foreground"}`}>
                     {priceFor(x)}
                     <button onClick={() => toggle(x)} className="text-base text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
                   </span>

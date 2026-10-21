@@ -5,6 +5,8 @@ export type Category = { num: string; title: string; groups: ServiceGroup[] };
 export const PRICE_NOTE =
   "Цены ориентировочные — точная стоимость обсуждается при консультации по конкретному случаю.";
 
+export const FREE = "бесплатно";
+
 export const PHONE_DISPLAY = "+7 961 220-57-50";
 export const PHONE_TEL = "tel:+79612205750";
 export const MAX_URL = "https://max.ru/u/f9LHodD0cOKaTUaIWtU4O3U9ZLm6kQMLRt6KIqYIZvM-7bYw_bmfRnabOfI";
@@ -107,10 +109,10 @@ export const CATALOG: Category[] = [
     groups: [
       {
         items: [
-          i("Снятие мерок и подбор оптимальной длины", "от 200 ₽"),
-          i("Консультация по ремонту изделия", "от 300 ₽"),
-          i("Подбор подходящей фурнитуры", "от 200 ₽"),
-          i("Срочный ремонт одежды", "от 900 ₽"),
+          i("Снятие мерок и подбор оптимальной длины", FREE),
+          i("Консультация по ремонту изделия", FREE),
+          i("Подбор подходящей фурнитуры", FREE),
+          i("Доплата за срочность", "от 900 ₽"),
         ],
       },
     ],
