@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Check, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
+import { Check, ChevronDown, Home, MapPin, Phone, Scissors, Send, Sparkles, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import { CATALOG, FREE, MAP_URL, MAX_URL, PHONE_DISPLAY, PHONE_TEL, PRICE_NOTE, buildRequest, priceFor } from "@/lib/services";
 
@@ -68,15 +68,17 @@ function Index() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#services" className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-soft transition hover:opacity-90">
-              Выбрать услуги
-            </a>
-            <a href={PHONE_TEL} className="flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold transition hover:bg-muted">
-              <Phone className="h-4 w-4" /> Позвонить
-            </a>
-            <a href={MAX_URL} target="_blank" rel="noopener" className="flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-semibold transition hover:bg-muted">
-              <Send className="h-4 w-4" /> Написать в MAX
+          <div className="mt-8 space-y-4">
+            <div className="flex flex-wrap gap-3">
+              <a href={PHONE_TEL} className="flex min-w-40 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-soft transition hover:opacity-90">
+                <Phone className="h-4 w-4" /> Позвонить
+              </a>
+              <a href={MAX_URL} target="_blank" rel="noopener" className="flex min-w-40 flex-1 items-center justify-center gap-2 rounded-full border border-primary bg-card px-6 py-3 font-semibold text-primary transition hover:bg-secondary">
+                <Send className="h-4 w-4" /> Написать в MAX
+              </a>
+            </div>
+            <a href="#services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted-foreground transition hover:text-primary">
+              Выбрать услуги <ChevronDown className="h-4 w-4" />
             </a>
           </div>
         </div>
