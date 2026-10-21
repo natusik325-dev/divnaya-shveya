@@ -167,9 +167,6 @@ function Index() {
               <Phone className="h-4 w-4" /> Позвонить
             </a>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Нажимая «Отправить в MAX», вы копируете заполненную форму — текст останется вставить в чат MAX.
-          </p>
           {copied && (
             <p className="mt-3 text-sm text-accent">Текст заявки скопирован — вставьте его в чат MAX.</p>
           )}
