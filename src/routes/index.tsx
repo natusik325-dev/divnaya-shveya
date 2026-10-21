@@ -137,7 +137,10 @@ function Index() {
               {selected.map((x) => (
                 <li key={x} className="flex justify-between gap-3 border-b border-border py-1.5">
                   {x}
-                  <button onClick={() => toggle(x)} className="text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
+                  <span className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+                    {priceFor(x)}
+                    <button onClick={() => toggle(x)} className="text-base text-muted-foreground hover:text-primary" aria-label={`Убрать ${x}`}>×</button>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -162,6 +165,7 @@ function Index() {
           {copied && (
             <p className="mt-3 text-sm text-accent">Текст заявки скопирован — вставьте его в чат MAX.</p>
           )}
+          <p className="mt-3 text-xs text-muted-foreground">{PRICE_NOTE}</p>
         </div>
       </section>
 
